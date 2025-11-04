@@ -1,8 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.time.LocalDate;
 
+
 public class Main {
     public static void main(String[] args) {
+        List<Tarefa> tarefas = new ArrayList<>();
         boolean executando = true;
         System.out.println("TodoList");
 
@@ -31,11 +35,17 @@ public class Main {
                     System.out.println("Digite a data de entrega (YYYY-MM-dd)");
                     LocalDate dataEntrega = LocalDate.parse(sc.nextLine());
                     Tarefa tarefa = new Tarefa(titulo, descricao, dataEntrega);
+                    tarefas.add(tarefa);
                     System.out.println(tarefa);
                     yield true;
                 }
                 case 2 -> {
-                    System.out.println("Listar tarefas pendentes");
+                    System.out.println("====== Tarefas Pendentes ======");
+                    for (Tarefa t : tarefas) {
+                        if (!t.isConcluida()){
+                            System.out.println(t);
+                        }
+                    }
                     yield true;
                 }
                 case 3 -> {

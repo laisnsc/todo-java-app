@@ -1,4 +1,5 @@
-
+import java.util.ArrayList;
+import java.util.List;
 import java.time.LocalDate;
 
 public class Tarefa {
@@ -6,6 +7,12 @@ public class Tarefa {
     private String descricao;
     private LocalDate dataEntrega;
     private boolean concluida;
+
+    public Tarefa(String titulo, String descricao, LocalDate dataEntrega) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.dataEntrega = dataEntrega;
+    }
 
     public String getTitulo() {
         return titulo;
@@ -23,22 +30,6 @@ public class Tarefa {
         this.descricao = descricao;
     }
 
-    public Tarefa(String titulo, String descricao, LocalDate dataEntrega) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.dataEntrega = dataEntrega;
-    }
-
-    @Override
-    public String toString() {
-        return "Tarefa{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", dataEntrega=" + dataEntrega +
-                ", concluida=" + concluida +
-                '}';
-    }
-
     public LocalDate getDataEntrega() {
         return dataEntrega;
     }
@@ -53,5 +44,15 @@ public class Tarefa {
 
     public void setConcluida(boolean concluida) {
         this.concluida = concluida;
+    }
+
+    @Override
+    public String toString() {
+        return "Tarefa{" +
+                "titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", dataEntrega=" + dataEntrega +
+                ", concluida=" + concluida +
+                '}';
     }
 }
