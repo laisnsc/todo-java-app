@@ -61,7 +61,6 @@ public class Main {
                     yield true;
                 }
                 case 4 -> {
-                    System.out.println("Marcar tarefa como concluída");
                     System.out.println("Digite o título da tarefa:");
                     String tituloBusca = sc.nextLine();
                     Tarefa tarefaConcluida = Tarefa.buscarPorTitulo(tarefas, tituloBusca);
@@ -74,7 +73,15 @@ public class Main {
                     yield true;
                 }
                 case 5 -> {
-                    System.out.println("Remover uma tarefa");
+                    System.out.println("Digite o título da tarefa a remover:");
+                    String tituloBusca = sc.nextLine();
+                    Tarefa tarefa = Tarefa.buscarPorTitulo(tarefas, tituloBusca);
+                    if (tarefa != null) {
+                        tarefas.remove(tarefa);
+                        System.out.println("Tarefa foi removida da lista");
+                    } else {
+                        System.out.println("Nenhuma tarefa com esse título encontrada.");
+                    }
                     yield true;
                 }
                 case 0 -> {
