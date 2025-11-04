@@ -46,6 +46,15 @@ public class Tarefa {
         this.concluida = concluida;
     }
 
+    public static Tarefa buscarPorTitulo(List<Tarefa> tarefas, String titulo){
+        for (Tarefa t : tarefas){
+            if (t.getTitulo().equalsIgnoreCase(titulo)) {
+                return t;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Tarefa{" +

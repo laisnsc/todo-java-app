@@ -49,7 +49,15 @@ public class Main {
                     yield true;
                 }
                 case 3 -> {
-                    System.out.println("Buscar tarefa por título");
+                    System.out.println("Digite o título da tarefa para buscar");
+                    String tituloBusca = sc.nextLine();
+                    Tarefa tarefaEncontrada = Tarefa.buscarPorTitulo(tarefas, tituloBusca);
+                    if (tarefaEncontrada != null) {
+                        System.out.println("Tarefa Encontrada:");
+                        System.out.println(tarefaEncontrada);
+                    } else {
+                        System.out.printf("Nenhuma tarefa com esse título encontrada.");
+                    }
                     yield true;
                 }
                 case 4 -> {
