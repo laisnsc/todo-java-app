@@ -56,12 +56,21 @@ public class Main {
                         System.out.println("Tarefa Encontrada:");
                         System.out.println(tarefaEncontrada);
                     } else {
-                        System.out.printf("Nenhuma tarefa com esse título encontrada.");
+                        System.out.println("Nenhuma tarefa com esse título encontrada.");
                     }
                     yield true;
                 }
                 case 4 -> {
                     System.out.println("Marcar tarefa como concluída");
+                    System.out.println("Digite o título da tarefa:");
+                    String tituloBusca = sc.nextLine();
+                    Tarefa tarefaConcluida = Tarefa.buscarPorTitulo(tarefas, tituloBusca);
+                    if (tarefaConcluida != null) {
+                        tarefaConcluida.setConcluida(true);
+                        System.out.println("Tarefa foi marcada como concluída.");
+                    } else {
+                        System.out.println("Nenhuma tarefa com esse título encontrada.");
+                    }
                     yield true;
                 }
                 case 5 -> {
